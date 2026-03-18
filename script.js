@@ -6,6 +6,7 @@ const translations = {
         about: 'I\'m a software engineering student at ÉTS, wrapping up my degree in 2026. I\'ve had the chance to work at Ubisoft and Desjardins — touching everything from iOS apps to cloud backends. I love computers in general, and I\'m always tinkering with something. This site is where I collect the things I make.',
         projects_heading: 'Projects',
         links_heading: 'Links',
+        email_heading: 'Email',
     },
     'fr-CA': {
         description: 'Ludovic Belzile — Étudiant en génie logiciel à l\'ÉTS, diplômé en 2026.',
@@ -14,6 +15,7 @@ const translations = {
         about: 'Étudiant en génie logiciel à l\'ÉTS, je termine mon baccalauréat en 2026. J\'ai eu la chance de travailler chez Ubisoft et Desjardins — du développement iOS aux backends infonuagiques. J\'aime les ordinateurs en général, et j\'ai toujours un projet en cours. Ce site, c\'est l\'endroit où je regroupe ce que je fais.',
         projects_heading: 'Projets',
         links_heading: 'Liens',
+        email_heading: 'Courriel',
     },
 };
 
