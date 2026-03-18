@@ -1,5 +1,6 @@
 const translations = {
     'en-US': {
+        description: 'Ludovic Belzile — Software engineering student at ÉTS, graduating 2026.',
         tagline: 'Software engineering student, graduating soon.',
         about_heading: 'About',
         about: 'I\'m a software engineering student at ÉTS, wrapping up my degree in 2026. I\'ve had the chance to work at Ubisoft and Desjardins — touching everything from iOS apps to cloud backends. I love computers in general, and I\'m always tinkering with something. This site is where I collect the things I make.',
@@ -7,6 +8,7 @@ const translations = {
         links_heading: 'Links',
     },
     'fr-CA': {
+        description: 'Ludovic Belzile — Étudiant en génie logiciel à l\'ÉTS, diplômé en 2026.',
         tagline: 'Étudiant en génie logiciel, bientôt diplômé.',
         about_heading: 'À propos',
         about: 'Étudiant en génie logiciel à l\'ÉTS, je termine mon baccalauréat en 2026. J\'ai eu la chance de travailler chez Ubisoft et Desjardins — du développement iOS aux backends infonuagiques. J\'aime les ordinateurs en général, et j\'ai toujours un projet en cours. Ce site, c\'est l\'endroit où je regroupe ce que je fais.',
@@ -31,6 +33,8 @@ function applyLang(lang) {
         const key = el.dataset.i18n;
         if (t[key] !== undefined) el.textContent = t[key];
     });
+
+    document.querySelector('meta[name="description"]').setAttribute('content', t.description);
 
     document.querySelectorAll('.lang-toggle a').forEach(a => {
         a.classList.toggle('active', a.dataset.lang === lang);
