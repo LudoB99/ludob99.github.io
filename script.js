@@ -68,3 +68,4 @@ function applyLang(lang) {
 }
 
 applyLang(getLang());
+document.getElementById('year').textContent = new Date().getFullYear();

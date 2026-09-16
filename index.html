@@ -11,8 +11,15 @@
 <body>
 
 <header>
-    <h1><span>~</span> Ludovic Belzile</h1>
-    <p class="tagline" data-i18n="tagline"></p>
+    <div>
+        <h1><span>~</span> Ludovic Belzile</h1>
+        <p class="tagline" data-i18n="tagline"></p>
+    </div>
+    <nav class="lang-toggle">
+        <a href="?lang=en-US" data-lang="en-US">EN</a>
+        &nbsp;/&nbsp;
+        <a href="?lang=fr-CA" data-lang="fr-CA">FR</a>
+    </nav>
 </header>
 
 <main>
@@ -63,11 +70,7 @@
 
 <footer>
     <span>lbelzile.ca</span>
-    <nav class="lang-toggle">
-        <a href="?lang=en-US" data-lang="en-US">EN</a>
-        &nbsp;/&nbsp;
-        <a href="?lang=fr-CA" data-lang="fr-CA">FR</a>
-    </nav>
+    <span>&copy; <span id="year"></span> Ludovic Belzile</span>
 </footer>
 
 </body>
