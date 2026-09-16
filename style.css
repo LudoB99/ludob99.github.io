@@ -25,6 +25,7 @@ body {
 
 header {
     margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--border);
     display: flex;
     justify-content: space-between;
