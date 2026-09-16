@@ -24,9 +24,8 @@ body {
 }
 
 header {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     border-bottom: 1px solid var(--border);
-    padding-bottom: 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -78,6 +77,14 @@ h3::before {
 
 p {
     color: var(--fg);
+}
+
+p a {
+    color: var(--accent);
+}
+
+p a:hover {
+    text-decoration: none;
 }
 
 ul {

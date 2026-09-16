@@ -1,9 +1,5 @@
 const translations = {
     'en-US': {
-        description: 'Ludovic Belzile — Software engineering graduate from ÉTS, CEP.',
-        tagline: 'Software engineering graduate, CEP.',
-        about_heading: 'About',
-        about: 'I\'m a software engineering graduate from ÉTS and a CEP (Candidate to the Engineering Profession). I\'ve had the chance to work at Ubisoft and Desjardins, where I worked on everything from iOS apps to cloud backends. I love computers in general, and I\'m always tinkering with something. This site is where I collect the things I make.',
         projects_heading: 'Projects',
         projects_live_heading: 'Live',
         projects_other_heading: 'Source only',
@@ -21,10 +17,6 @@ const translations = {
         email_heading: 'Email',
     },
     'fr-CA': {
-        description: 'Ludovic Belzile — Diplômé en génie logiciel de l\'ÉTS, CPI.',
-        tagline: 'Diplômé en génie logiciel, CPI.',
-        about_heading: 'À propos',
-        about: 'Diplômé en génie logiciel de l\'ÉTS et candidat à la profession d\'ingénieur (CPI), j\'ai eu la chance de travailler chez Ubisoft et Desjardins où j\'ai touché au développement iOS et aux backends infonuagiques. J\'aime les ordinateurs en général, et j\'ai toujours un projet en cours. Ce site, c\'est l\'endroit où je regroupe ce que je fais.',
         projects_heading: 'Projets',
         projects_live_heading: 'En ligne',
         projects_other_heading: 'Source seulement',
@@ -57,7 +49,7 @@ function applyLang(lang) {
     document.documentElement.lang = lang;
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.dataset.i18n;
-        if (t[key] !== undefined) el.textContent = t[key];
+        if (t[key] !== undefined) el.innerHTML = t[key];
     });
 
     document.querySelector('meta[name="description"]').setAttribute('content', t.description);
