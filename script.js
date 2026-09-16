@@ -1,5 +1,6 @@
 const translations = {
     'en-US': {
+        description: 'Portfolio of Ludovic Belzile, software developer. See my projects and how to get in touch.',
         projects_heading: 'Projects',
         projects_live_heading: 'Live',
         projects_other_heading: 'Source only',
@@ -17,6 +18,7 @@ const translations = {
         email_heading: 'Email',
     },
     'fr-CA': {
+        description: 'Portfolio de Ludovic Belzile, développeur de logiciels. Découvrez mes projets et comment me contacter.',
         projects_heading: 'Projets',
         projects_live_heading: 'En ligne',
         projects_other_heading: 'Source seulement',
@@ -37,10 +39,30 @@ const translations = {
 
 const SUPPORTED = Object.keys(translations);
 const DEFAULT_LANG = 'fr-CA';
+const STORAGE_KEY = 'lang';
 
 function getLang() {
     const param = new URLSearchParams(location.search).get('lang');
-    return SUPPORTED.includes(param) ? param : DEFAULT_LANG;
+    if (SUPPORTED.includes(param)) return param;
+
+    try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (SUPPORTED.includes(stored)) return stored;
+    } catch (e) {}
+
+    return DEFAULT_LANG;
+}
+
+function setLang(lang) {
+    applyLang(lang);
+
+    try {
+        localStorage.setItem(STORAGE_KEY, lang);
+    } catch (e) {}
+
+    if (location.search) {
+        history.replaceState(null, '', location.pathname);
+    }
 }
 
 function applyLang(lang) {
@@ -52,12 +74,29 @@ function applyLang(lang) {
         if (t[key] !== undefined) el.innerHTML = t[key];
     });
 
-    document.querySelector('meta[name="description"]').setAttribute('content', t.description);
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) metaDescription.setAttribute('content', t.description);
+
+    const metaOgDescription = document.querySelector('meta[property="og:description"]');
+    if (metaOgDescription) metaOgDescription.setAttribute('content', t.description);
 
     document.querySelectorAll('.lang-toggle a').forEach(a => {
-        a.classList.toggle('active', a.dataset.lang === lang);
+        const isActive = a.dataset.lang === lang;
+        a.classList.toggle('active', isActive);
+        if (isActive) {
+            a.setAttribute('aria-current', 'page');
+        } else {
+            a.removeAttribute('aria-current');
+        }
     });
 }
 
-applyLang(getLang());
+document.querySelectorAll('.lang-toggle a').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        setLang(a.dataset.lang);
+    });
+});
+
+setLang(getLang());
 document.getElementById('year').textContent = new Date().getFullYear();
